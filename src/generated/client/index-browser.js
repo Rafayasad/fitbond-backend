@@ -135,6 +135,20 @@ exports.Prisma.RolesScalarFieldEnum = {
   role: 'role'
 };
 
+exports.Prisma.CategoriesScalarFieldEnum = {
+  id: 'id',
+  category: 'category',
+  archive: 'archive'
+};
+
+exports.Prisma.ChannelsScalarFieldEnum = {
+  id: 'id',
+  channel: 'channel',
+  link: 'link',
+  archive: 'archive',
+  categoryId: 'categoryId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -154,7 +168,9 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Otp: 'Otp',
-  Roles: 'Roles'
+  Roles: 'Roles',
+  Categories: 'Categories',
+  Channels: 'Channels'
 };
 
 /**

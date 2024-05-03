@@ -3,7 +3,7 @@ const path = require('path');
 
 
 module.exports = {
-    uploadImage: async (file, type) => {
+    upload: async (file, type) => {
         try {
             const { createReadStream, filename } = await file;
             const name = filename.split(".");
@@ -17,7 +17,7 @@ module.exports = {
             return url
 
         } catch {
-            throw new Error('File error');
+            throw new Error('File upload error');
         }
-    }
+    },
 }

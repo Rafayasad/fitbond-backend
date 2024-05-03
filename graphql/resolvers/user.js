@@ -39,6 +39,28 @@ const userResolver = {
             } catch (err) {
                 return errorGenerator(errorName.INTERNALSERVER)
             }
+        },
+
+        deleteUser: async (parent, { id }, ctx) => {
+            try {
+                await prisma.user.delete({
+                    where: {
+                        id
+                    }
+                })
+
+                return {
+                    message: successName.DELETED
+                }
+
+            } catch (err) {
+                if (err instanceof Prisma.PrismaClientKnownRequestError) {
+                    if (err.code === 'P2025') return errorGenerator(errorName.NORECORDFOUND)
+                    else return errorGenerator(errorName.INTERNALSERVER)
+                }
+
+                return errorGenerator(errorName.INTERNALSERVER)
+            }
         }
 
     },
@@ -59,7 +81,6 @@ const userResolver = {
                 })
                 const id = user.id
                 const token = await generateToken({ id })
-
                 return {
                     data: {
                         ...user,
@@ -80,7 +101,6 @@ const userResolver = {
 
         login: async (parent, { input }, ctx) => {
             try {
-                // console.log("ctx",ctx.req.headers);
                 const { email, password } = input
                 validateEmail(email)
                 const user = await prisma.user.findUnique({
@@ -243,7 +263,7 @@ const userResolver = {
                 if (profilePic != undefined) {
                     data = {
                         ...input,
-                        profilePic: await upload.uploadImage(profilePic.file, "profile")
+                        profilePic: await upload.upload(profilePic.file, "profile")
                     }
                 }
                 const user = await prisma.user.update({
@@ -257,7 +277,7 @@ const userResolver = {
 
                 return {
                     data: user,
-                    message: successName.UPDATEUSER
+                    message: successName.UPDATED
                 }
 
             } catch (err) {
@@ -329,6 +349,29 @@ const userResolver = {
             } catch (err) {
                 if (err instanceof Prisma.PrismaClientKnownRequestError) {
                     if (err.code === 'P2002') return errorGenerator(errorName.EMAILALREADYEXIST)
+                    else return errorGenerator(errorName.INTERNALSERVER)
+                }
+
+                return errorGenerator(errorName.INTERNALSERVER)
+            }
+        },
+
+        updateUserByAdmin: async (parent, { input }, ctx) => {
+            try {
+                await prisma.user.update({
+                    where: {
+                        id: input.id
+                    },
+                    input
+                })
+
+                return {
+                    message: successName.UPDATED
+                }
+
+            } catch (err) {
+                if (err instanceof Prisma.PrismaClientKnownRequestError) {
+                    if (err.code === 'P2025') return errorGenerator(errorName.NORECORDFOUND)
                     else return errorGenerator(errorName.INTERNALSERVER)
                 }
 

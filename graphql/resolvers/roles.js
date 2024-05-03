@@ -55,7 +55,7 @@ const rolesResolver = {
                 })
 
                 return {
-                    message: successName.ROLEDELETED
+                    message: successName.DELETED
                 }
 
             } catch (err) {

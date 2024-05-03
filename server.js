@@ -49,7 +49,7 @@ async function startServer() {
     // }, wsServer)
 
     const server = new ApolloServer({
-        uploads: { maxFileSize: 5000000000 || '50mb' },
+        uploads: { maxFileSize: 5000000000 || '3072mb' },
         schema: schemaWithPermissions,
         plugins: [
             createApolloQueryValidationPlugin({ schema }),

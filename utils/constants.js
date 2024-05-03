@@ -2,15 +2,19 @@ exports.errorName = {
     UNAUTHORIZED: 'UNAUTHORIZED',
     BADREQUEST: 'BADREQUEST',
     INTERNALSERVER: 'INTERNALSERVER',
+    CATEGORYHAVECHANNEL: 'CATEGORYHAVECHANNEL',
     NORECORDFOUND: 'NORECORDFOUND',
     INACTIVE: 'INACTIVE',
     INVALIDACCESS: 'INVALIDACCESS',
     EMAILALREADYEXIST: 'EMAILALREADYEXIST',
     ROLEIDINVALID: 'ROLEIDINVALID',
     ROLEALREADYEXIST: 'ROLEALREADYEXIST',
+    CATEGORYALREADYEXIST: 'ROLEALREADYEXIST',
     ACTIVITYALREADYEXIST: 'ACTIVITYALREADYEXIST',
     INTERESTALREADYEXIST: 'INTERESTALREADYEXIST',
     CATEGORYALREADYEXIST: 'CATEGORYALREADYEXIST',
+    CHANNELALREADYEXIST: 'CHANNELALREADYEXIST',
+    CHANNELVIDEOREQUIRED: 'CHANNELVIDEOREQUIRED',
     EMAILNOTREGISTERED: 'EMAILNOTREGISTERED',
     NAMEALREADYEXIST: 'NAMEALREADYEXIST',
     INVALIDDETAIL: 'INVALIDDETAIL',
@@ -58,23 +62,13 @@ exports.errorName = {
 exports.successName = {
     REGISTER: 'Successfully created',
     LOGIN: 'Successfully login',
-    UPDATEUSER: 'Successfully updated',
+    UPDATED: 'Successfully updated',
+    DELETED: 'Successfully deleted',
     OTPSEND: 'A verification code has been sent to your email',
     OTPVERIFIED: 'A verification code has been verified',
     RESETPASSWORD: 'Password reseted Successfully',
     ROLECREATED: 'Role Successfully created',
-    ACTIVITYTYPECREATED: 'Activity type Successfully created',
-    ACTIVITYCREATED: 'Activity Successfully created',
-    ACTIVITYUPDATED: 'Activity Successfully updated',
-    ROLEDELETED: 'Role Successfully deleted',
-    ACTIVITYTYPEDELETED: 'Activity type Successfully deleted',
-    ACTIVITYDELETED: 'Activity Successfully deleted',
-    INTERESTCREATED: 'Interest Successfully created',
-    INTERESTDELETED: 'Interest Successfully deleted',
-    CATEGORYCREATED: 'Category Successfully created',
-    CATEGORYDELETED: 'Category Successfully created',
-    CATEGORYDELETED: 'Category Successfully deleted',
-    CATEGORYUPDATED: 'Category Successfully updated',
+    ARCHIVED: 'User Archive successfully',
 }
 
 exports.errorType = {
@@ -246,7 +240,15 @@ exports.errorType = {
         statusCode: 400
     },
     CATEGORYALREADYEXIST: {
-        message: 'Interest already exist',
+        message: 'Category already exist',
+        statusCode: 400
+    },
+    CHANNELALREADYEXIST: {
+        message: 'Channel already exist',
+        statusCode: 400
+    },
+    CHANNELVIDEOREQUIRED: {
+        message: 'Video of the channel required',
         statusCode: 400
     },
     EMAILNOTREGISTERED: {
@@ -292,6 +294,10 @@ exports.errorType = {
     INTERNALSERVER: {
         message: 'Internal server error',
         statusCode: 500
+    },
+    CATEGORYHAVECHANNEL: {
+        message: 'First delete the related channels of this category',
+        statusCode: 400
     },
     NORECORDSFOUND: {
         message: 'No data found',
