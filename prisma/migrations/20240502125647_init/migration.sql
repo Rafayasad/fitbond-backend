@@ -5,13 +5,13 @@ CREATE TABLE "User" (
     "password" TEXT,
     "type" TEXT DEFAULT 'email',
     "fullname" TEXT,
-    "interests" JSONB,
     "phoneNumber" TEXT,
     "profilePic" TEXT,
     "roleId" INTEGER NOT NULL,
     "dob" TIMESTAMP(3),
     "gender" TEXT,
     "aboutMe" TEXT,
+    "archive" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );

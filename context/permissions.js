@@ -55,6 +55,10 @@ const permissions = shield({
     getUser: isAuthenticated,
     getAllUsers: isAuthenticated,
     getAllRoles: isAuthenticated,
+    deleteUser: isAuthenticated,
+    // getAllCategories: isAuthenticated,
+    // deleteCategory: and(isAuthenticated, isAdmin),
+
   },
   Mutation: {
     register: not(isAuthenticated),
@@ -66,6 +70,9 @@ const permissions = shield({
     updateUser: and(isAuthenticated, or(isViewer, isStreamer)),
     createRole: and(isAuthenticated, isAdmin),
     deleteRole: and(isAuthenticated, isAdmin),
+    updateUserByAdmin: and(isAuthenticated, isAdmin),
+    // createCategory: and(isAuthenticated, isAdmin),
+    // updateCategory: and(isAuthenticated, isAdmin),
   }
 }, {
   fallbackRule: allow

@@ -17,7 +17,7 @@ async function main() {
     ];
 
 
-    const createdInterests = await Promise.all([
+    const createdRoles = await Promise.all([
         ...roles.map(role =>
             prisma.roles.upsert({
                 where: { id: -1 }, // Choose a unique identifier
@@ -27,7 +27,7 @@ async function main() {
         )
     ]);
 
-    console.log('Created interests:', createdInterests);
+    console.log('Created roles:', createdRoles);
 }
 main()
     .then(async () => {

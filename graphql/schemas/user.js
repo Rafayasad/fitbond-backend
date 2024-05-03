@@ -42,6 +42,10 @@ const userDefs = `#graphql
     email: String!,
   }
 
+  input delete{
+    id: Int!
+  }
+
   input register{
     password: String! @constraint(minLength: 8, maxLength: 20)
     email: String!,
@@ -79,11 +83,23 @@ const userDefs = `#graphql
     gender:String
     aboutMe:String  
     interests:JSON
+    archive:Boolean
+  }
+
+  input updateByAdmin{
+    fullname:String
+    phoneNumber:String
+    dob:Date
+    gender:String
+    aboutMe:String  
+    interests:JSON
+    archive:Boolean
   }
 
   type Query {
     getUser: userData!
     getAllUsers(input: allUsers): userData!
+    deleteUser(input: delete!): showMessage!
   }
   
   type Mutation {
@@ -94,6 +110,7 @@ const userDefs = `#graphql
     verifyAuthToken(input: authToken!): dataWithMessage!
     login(input: login!): dataWithMessage!
     updateUser(profilePic: Upload,input: update!): dataWithMessage!
+    updateUserByAdmin(input: updateByAdmin!): showMessage!
   }
 
 `;
