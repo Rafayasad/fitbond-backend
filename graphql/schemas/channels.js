@@ -5,6 +5,9 @@
 const channelsDefs = `#graphql
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
   
+  scalar Date
+  scalar JSON
+  scalar Upload
   input createChannel {
     channel: String!
     categoryId: Int!

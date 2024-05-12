@@ -4,7 +4,8 @@
 // your data.
 const categoriesDefs = `#graphql
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-  
+  scalar Date
+  scalar JSON
   input createCategory {
     category: String!
   }
@@ -27,7 +28,7 @@ const categoriesDefs = `#graphql
   }
 
   type Query {
-    getAllCategories(input: category): JSON!
+    getAllCategories(input: category): [JSON]!
     deleteCategory(input: delete!): showMessage!
   }
 

@@ -30,11 +30,35 @@ const userResolver = {
         getAllUsers: async (parent, { input }, { id }) => {
             try {
                 let filter = {}
-                if (input?.roleId) filter = input
-                const user = await prisma.user.findMany({
-                    where: filter
-                })
-                return user
+
+                if (input?.roleId !== 1) return errorGenerator(errorName.UNAUTHORIZED)
+
+                const users = await prisma.user.findMany(
+                    {
+                        where: {
+                            roleId: {
+
+                                not: {
+                                    equals: input?.roleId
+                                }
+                            }
+                        },
+                        select: {
+                            id: true,
+                            email: true,
+                            type: true,
+                            fullname: true,
+                            phoneNumber: true,
+                            profilePic: true,
+                            dob: true,
+                            gender: true,
+                            aboutMe: true,
+                            archive: true
+                        }
+                    }
+                )
+
+                return users
             } catch (err) {
                 return errorGenerator(errorName.INTERNALSERVER)
             }

@@ -1,6 +1,7 @@
 const { PrismaClient, Prisma } = require('../../src/generated/client')
 const { errorName, successName } = require('../../utils/constants');
 const { errorGenerator } = require('../../helper/helper')
+const upload = require('../../upload/upload')
 
 const prisma = new PrismaClient({
     errorFormat: 'pretty'
@@ -12,10 +13,9 @@ const channelsResolver = {
 
         getAllChannels: async (parent, { input }, ctx) => {
             try {
-                let filter = {
-                    archive: false
-                }
-                if (input?.id) filter = { ...filter, input }
+                let filter = {}
+                if (input?.id) filter = { ...input }
+                console.log("filter", filter);
                 const channels = await prisma.channels.findMany({
                     where: filter
                 })
@@ -60,6 +60,7 @@ const channelsResolver = {
 
         createChannel: async (parent, { input, video }, ctx) => {
             try {
+
                 if (video != undefined) {
                     input = {
                         ...input,
@@ -68,11 +69,13 @@ const channelsResolver = {
                 }
                 if (!input.link) return errorGenerator(errorName.CHANNELVIDEOREQUIRED)
 
-                await prisma.categories.findUnique({
+                const categoryExist = await prisma.categories.findUnique({
                     where: {
                         id: input.categoryId
                     }
                 })
+
+                if (!categoryExist) return errorGenerator(errorName.NORECORDFOUND)
 
                 await prisma.channels.create({
                     data: input
@@ -84,7 +87,6 @@ const channelsResolver = {
 
             } catch (err) {
                 if (err instanceof Prisma.PrismaClientKnownRequestError) {
-                    if (err.code === 'P2025') return errorGenerator(errorName.NORECORDFOUND)
                     if (err.code === 'P2002') return errorGenerator(errorName.CHANNELALREADYEXIST)
                     else return errorGenerator(errorName.INTERNALSERVER)
                 }

@@ -244,7 +244,7 @@ exports.errorType = {
         statusCode: 400
     },
     CHANNELALREADYEXIST: {
-        message: 'Channel already exist',
+        message: 'Channel name already exist',
         statusCode: 400
     },
     CHANNELVIDEOREQUIRED: {

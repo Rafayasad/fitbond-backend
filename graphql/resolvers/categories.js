@@ -35,14 +35,13 @@ const categoriesResolver = {
         deleteCategory: async (parent, { input }, ctx) => {
             try {
 
-                const channel = await prisma.channels.findUnique({
+                const channel = await prisma.channels.findFirst({
                     where: {
                         categoryId: input.id
                     }
                 })
 
                 if (channel) return errorGenerator(errorName.CATEGORYHAVECHANNEL)
-
                 await prisma.categories.delete({
                     where: {
                         id: input.id

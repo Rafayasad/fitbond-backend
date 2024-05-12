@@ -21,12 +21,14 @@ const userDefs = `#graphql
   type userData{
     id:Int!
     email:String!
+    type: String!
     fullname:String
     phoneNumber:String
     dob:Date
     gender:String
     aboutMe:String
     profilePic:String
+    archive: Boolean!
   }
 
   enum authType{
@@ -95,7 +97,7 @@ const userDefs = `#graphql
 
   type Query {
     getUser: userData!
-    getAllUsers(input: allUsers): userData!
+    getAllUsers(input: allUsers): [userData]!
     deleteUser(input: delete!): showMessage!
   }
   
