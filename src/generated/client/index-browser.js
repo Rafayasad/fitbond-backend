@@ -141,6 +141,16 @@ exports.Prisma.CategoriesScalarFieldEnum = {
   archive: 'archive'
 };
 
+exports.Prisma.SubscriptionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  desc: 'desc',
+  amount: 'amount',
+  services: 'services',
+  type: 'type',
+  archive: 'archive'
+};
+
 exports.Prisma.ChannelsScalarFieldEnum = {
   id: 'id',
   channel: 'channel',
@@ -170,6 +180,7 @@ exports.Prisma.ModelName = {
   Otp: 'Otp',
   Roles: 'Roles',
   Categories: 'Categories',
+  Subscription: 'Subscription',
   Channels: 'Channels'
 };
 

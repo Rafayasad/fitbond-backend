@@ -112,8 +112,8 @@ async function startServer() {
         ),
     );
 
-    await new Promise((resolve) => httpServer.listen({ port: process.env.PORT }, resolve));
-    console.log(`🚀 Server ready at http://localhost:${process.env.PORT}/graphql`);
+    await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
+    // console.log(`🚀 Server ready at http://localhost:5000/graphql`);
 
     app.get('/health', (req, res) => {
         res.status(200).send('Okay!');

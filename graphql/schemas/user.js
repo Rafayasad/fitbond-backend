@@ -26,7 +26,6 @@ const userDefs = `#graphql
     dob:Date
     gender:String
     aboutMe:String
-    interests:JSON
     profilePic:String
   }
 
@@ -81,8 +80,7 @@ const userDefs = `#graphql
     phoneNumber:String
     dob:Date
     gender:String
-    aboutMe:String  
-    interests:JSON
+    aboutMe:String
     archive:Boolean
   }
 
@@ -91,8 +89,7 @@ const userDefs = `#graphql
     phoneNumber:String
     dob:Date
     gender:String
-    aboutMe:String  
-    interests:JSON
+    aboutMe:String
     archive:Boolean
   }
 

@@ -25,7 +25,7 @@ model User {
   gender      String?
   aboutMe     String?
   otp         Otp?
-  archive     Boolean  @default(false)
+  archive     Boolean   @default(false)
 }
 
 model Otp {
@@ -44,19 +44,27 @@ model Roles {
 }
 
 model Categories {
-  id   Int    @id @default(autoincrement())
-  category String @unique
-  archive     Boolean  @default(false)
+  id       Int        @id @default(autoincrement())
+  category String     @unique
+  archive  Boolean    @default(false)
   channels Channels[]
 }
 
-model Channels {
-  id   Int    @id @default(autoincrement())
-  channel String @unique
-  link String @unique
-  archive     Boolean  @default(false)
-  category     Categories    @relation(fields: [categoryId], references: [id])
-  categoryId    Int
+model Subscription {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+  desc     String?
+  amount   Int
+  services String[]
+  type     String   @unique
+  archive  Boolean  @default(false)
 }
 
-
+model Channels {
+  id         Int        @id @default(autoincrement())
+  channel    String     @unique
+  link       String     @unique
+  archive    Boolean    @default(false)
+  category   Categories @relation(fields: [categoryId], references: [id])
+  categoryId Int
+}

@@ -35,7 +35,6 @@ const userResolver = {
                     where: filter
                 })
                 return user
-
             } catch (err) {
                 return errorGenerator(errorName.INTERNALSERVER)
             }
@@ -90,6 +89,7 @@ const userResolver = {
                 }
 
             } catch (err) {
+                console.log("ERR", err);
                 if (err instanceof Prisma.PrismaClientKnownRequestError) {
                     if (err.code === 'P2002') return errorGenerator(errorName.EMAILALREADYEXIST)
                     else if (err.code === 'P2003') return errorGenerator(errorName.ROLEIDINVALID)
