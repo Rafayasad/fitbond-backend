@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const axios = require('axios');
 const { GraphQLError } = require('graphql');
 const getErrorCode = require('../utils/error')
+const braintree = require('braintree');
 
 const hashPassword = async (password) => {
     try {
@@ -77,5 +78,16 @@ const getFacebookUserEmail = async (access_token) => {
     }
 };
 
+const brainTreeConnection = async () => {
+    const gateway = new braintree.BraintreeGateway({
+        environment: braintree.Environment.Sandbox, // Use Production for live
+        merchantId: process.env.BRAINTREE_MERCHANT_ID,
+        publicKey: process.env.BRAINTREE_PUBLIC_KEY,
+        privateKey: process.env.BRAINTREE_PRIVATE_KEY,
+    });
+    return gateway;
 
-module.exports = { hashPassword, comparePassword, errorGenerator, validateEmail, facebookVerifyToken, getFacebookUserEmail };
+};
+
+
+module.exports = { hashPassword, comparePassword, errorGenerator, validateEmail, facebookVerifyToken, getFacebookUserEmail, brainTreeConnection };

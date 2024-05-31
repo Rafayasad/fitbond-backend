@@ -53,6 +53,8 @@ CREATE TABLE "Subscription" (
     "services" TEXT[],
     "type" TEXT NOT NULL,
     "archive" BOOLEAN NOT NULL DEFAULT false,
+    "productId" TEXT NOT NULL,
+    "braintreePlanId" TEXT NOT NULL,
 
     CONSTRAINT "Subscription_pkey" PRIMARY KEY ("id")
 );
@@ -88,6 +90,12 @@ CREATE UNIQUE INDEX "Subscription_name_key" ON "Subscription"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Subscription_type_key" ON "Subscription"("type");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Subscription_productId_key" ON "Subscription"("productId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Subscription_braintreePlanId_key" ON "Subscription"("braintreePlanId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Channels_channel_key" ON "Channels"("channel");

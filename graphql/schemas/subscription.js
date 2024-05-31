@@ -4,11 +4,17 @@
 // your data.
 const subscriptionDefs = `#graphql
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+
+  enum type {
+    month
+    week
+    year
+  }
   
   input createSubscription {
     name: String!
     desc: String
-    type: String!
+    type: type!
     amount: Int!
     services: [String!]!
   }

@@ -2,6 +2,7 @@ exports.errorName = {
     UNAUTHORIZED: 'UNAUTHORIZED',
     BADREQUEST: 'BADREQUEST',
     INTERNALSERVER: 'INTERNALSERVER',
+    CANTUPDATEPLAN: 'CANTUPDATEPLAN',
     CATEGORYHAVECHANNEL: 'CATEGORYHAVECHANNEL',
     NORECORDFOUND: 'NORECORDFOUND',
     INACTIVE: 'INACTIVE',
@@ -69,6 +70,8 @@ exports.successName = {
     RESETPASSWORD: 'Password reseted Successfully',
     ROLECREATED: 'Role Successfully created',
     ARCHIVED: 'User Archive successfully',
+    ORDER: 'Order Placed Successfully',
+    ORDERCANCEL: 'Subscription Canceled Successfully',
 }
 
 exports.errorType = {
@@ -293,6 +296,10 @@ exports.errorType = {
     },
     INTERNALSERVER: {
         message: 'Internal server error',
+        statusCode: 500
+    },
+    CANTUPDATEPLAN: {
+        message: 'You can not delete this plan because of the active order of this plan',
         statusCode: 500
     },
     CATEGORYHAVECHANNEL: {

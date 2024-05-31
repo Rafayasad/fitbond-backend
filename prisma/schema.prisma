@@ -26,6 +26,8 @@ model User {
   aboutMe     String?
   otp         Otp?
   archive     Boolean   @default(false)
+  customerId  String?   @unique
+  paymentType String? 
 }
 
 model Otp {
@@ -58,6 +60,8 @@ model Subscription {
   services String[]
   type     String   @unique
   archive  Boolean  @default(false)
+  stripePlanId String  @unique
+  braintreePlanId String?  @unique
 }
 
 model Channels {
@@ -68,3 +72,18 @@ model Channels {
   category   Categories @relation(fields: [categoryId], references: [id])
   categoryId Int
 }
+
+
+model Orders {
+  id              Int        @id @default(autoincrement())
+  orderName       String    
+  customerName    String  
+  customerEmail   String  
+  paymentType     String  
+  planId          String  
+  customerId      String  
+  userId      String  
+  subscriptionId  String     @unique
+  archive         Boolean    @default(false)
+}
+

@@ -119,7 +119,9 @@ exports.Prisma.UserScalarFieldEnum = {
   dob: 'dob',
   gender: 'gender',
   aboutMe: 'aboutMe',
-  archive: 'archive'
+  archive: 'archive',
+  customerId: 'customerId',
+  paymentType: 'paymentType'
 };
 
 exports.Prisma.OtpScalarFieldEnum = {
@@ -148,7 +150,9 @@ exports.Prisma.SubscriptionScalarFieldEnum = {
   amount: 'amount',
   services: 'services',
   type: 'type',
-  archive: 'archive'
+  archive: 'archive',
+  stripeId: 'stripeId',
+  braintreePlanId: 'braintreePlanId'
 };
 
 exports.Prisma.ChannelsScalarFieldEnum = {

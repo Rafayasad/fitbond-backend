@@ -1368,6 +1368,8 @@ export namespace Prisma {
     gender: string | null
     aboutMe: string | null
     archive: boolean | null
+    customerId: string | null
+    paymentType: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1383,6 +1385,8 @@ export namespace Prisma {
     gender: string | null
     aboutMe: string | null
     archive: boolean | null
+    customerId: string | null
+    paymentType: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1398,6 +1402,8 @@ export namespace Prisma {
     gender: number
     aboutMe: number
     archive: number
+    customerId: number
+    paymentType: number
     _all: number
   }
 
@@ -1425,6 +1431,8 @@ export namespace Prisma {
     gender?: true
     aboutMe?: true
     archive?: true
+    customerId?: true
+    paymentType?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1440,6 +1448,8 @@ export namespace Prisma {
     gender?: true
     aboutMe?: true
     archive?: true
+    customerId?: true
+    paymentType?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1455,6 +1465,8 @@ export namespace Prisma {
     gender?: true
     aboutMe?: true
     archive?: true
+    customerId?: true
+    paymentType?: true
     _all?: true
   }
 
@@ -1557,6 +1569,8 @@ export namespace Prisma {
     gender: string | null
     aboutMe: string | null
     archive: boolean
+    customerId: string | null
+    paymentType: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1591,6 +1605,8 @@ export namespace Prisma {
     gender?: boolean
     aboutMe?: boolean
     archive?: boolean
+    customerId?: boolean
+    paymentType?: boolean
     role?: boolean | RolesDefaultArgs<ExtArgs>
     otp?: boolean | User$otpArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -1608,6 +1624,8 @@ export namespace Prisma {
     gender?: boolean
     aboutMe?: boolean
     archive?: boolean
+    customerId?: boolean
+    paymentType?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1635,6 +1653,8 @@ export namespace Prisma {
       gender: string | null
       aboutMe: string | null
       archive: boolean
+      customerId: string | null
+      paymentType: string | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -2044,6 +2064,8 @@ export namespace Prisma {
     readonly gender: FieldRef<"User", 'String'>
     readonly aboutMe: FieldRef<"User", 'String'>
     readonly archive: FieldRef<"User", 'Boolean'>
+    readonly customerId: FieldRef<"User", 'String'>
+    readonly paymentType: FieldRef<"User", 'String'>
   }
     
 
@@ -5271,6 +5293,8 @@ export namespace Prisma {
     amount: number | null
     type: string | null
     archive: boolean | null
+    stripeId: string | null
+    braintreePlanId: string | null
   }
 
   export type SubscriptionMaxAggregateOutputType = {
@@ -5280,6 +5304,8 @@ export namespace Prisma {
     amount: number | null
     type: string | null
     archive: boolean | null
+    stripeId: string | null
+    braintreePlanId: string | null
   }
 
   export type SubscriptionCountAggregateOutputType = {
@@ -5290,6 +5316,8 @@ export namespace Prisma {
     services: number
     type: number
     archive: number
+    stripeId: number
+    braintreePlanId: number
     _all: number
   }
 
@@ -5311,6 +5339,8 @@ export namespace Prisma {
     amount?: true
     type?: true
     archive?: true
+    stripeId?: true
+    braintreePlanId?: true
   }
 
   export type SubscriptionMaxAggregateInputType = {
@@ -5320,6 +5350,8 @@ export namespace Prisma {
     amount?: true
     type?: true
     archive?: true
+    stripeId?: true
+    braintreePlanId?: true
   }
 
   export type SubscriptionCountAggregateInputType = {
@@ -5330,6 +5362,8 @@ export namespace Prisma {
     services?: true
     type?: true
     archive?: true
+    stripeId?: true
+    braintreePlanId?: true
     _all?: true
   }
 
@@ -5427,6 +5461,8 @@ export namespace Prisma {
     services: string[]
     type: string
     archive: boolean
+    stripeId: string
+    braintreePlanId: string | null
     _count: SubscriptionCountAggregateOutputType | null
     _avg: SubscriptionAvgAggregateOutputType | null
     _sum: SubscriptionSumAggregateOutputType | null
@@ -5456,6 +5492,8 @@ export namespace Prisma {
     services?: boolean
     type?: boolean
     archive?: boolean
+    stripeId?: boolean
+    braintreePlanId?: boolean
   }, ExtArgs["result"]["subscription"]>
 
   export type SubscriptionSelectScalar = {
@@ -5466,6 +5504,8 @@ export namespace Prisma {
     services?: boolean
     type?: boolean
     archive?: boolean
+    stripeId?: boolean
+    braintreePlanId?: boolean
   }
 
 
@@ -5480,6 +5520,8 @@ export namespace Prisma {
       services: string[]
       type: string
       archive: boolean
+      stripeId: string
+      braintreePlanId: string | null
     }, ExtArgs["result"]["subscription"]>
     composites: {}
   }
@@ -5881,6 +5923,8 @@ export namespace Prisma {
     readonly services: FieldRef<"Subscription", 'String[]'>
     readonly type: FieldRef<"Subscription", 'String'>
     readonly archive: FieldRef<"Subscription", 'Boolean'>
+    readonly stripeId: FieldRef<"Subscription", 'String'>
+    readonly braintreePlanId: FieldRef<"Subscription", 'String'>
   }
     
 
@@ -7150,7 +7194,9 @@ export namespace Prisma {
     dob: 'dob',
     gender: 'gender',
     aboutMe: 'aboutMe',
-    archive: 'archive'
+    archive: 'archive',
+    customerId: 'customerId',
+    paymentType: 'paymentType'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -7191,7 +7237,9 @@ export namespace Prisma {
     amount: 'amount',
     services: 'services',
     type: 'type',
-    archive: 'archive'
+    archive: 'archive',
+    stripeId: 'stripeId',
+    braintreePlanId: 'braintreePlanId'
   };
 
   export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
@@ -7319,6 +7367,8 @@ export namespace Prisma {
     gender?: StringNullableFilter<"User"> | string | null
     aboutMe?: StringNullableFilter<"User"> | string | null
     archive?: BoolFilter<"User"> | boolean
+    customerId?: StringNullableFilter<"User"> | string | null
+    paymentType?: StringNullableFilter<"User"> | string | null
     role?: XOR<RolesRelationFilter, RolesWhereInput>
     otp?: XOR<OtpNullableRelationFilter, OtpWhereInput> | null
   }
@@ -7336,6 +7386,8 @@ export namespace Prisma {
     gender?: SortOrderInput | SortOrder
     aboutMe?: SortOrderInput | SortOrder
     archive?: SortOrder
+    customerId?: SortOrderInput | SortOrder
+    paymentType?: SortOrderInput | SortOrder
     role?: RolesOrderByWithRelationInput
     otp?: OtpOrderByWithRelationInput
   }
@@ -7343,6 +7395,7 @@ export namespace Prisma {
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     email?: string
+    customerId?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -7356,9 +7409,10 @@ export namespace Prisma {
     gender?: StringNullableFilter<"User"> | string | null
     aboutMe?: StringNullableFilter<"User"> | string | null
     archive?: BoolFilter<"User"> | boolean
+    paymentType?: StringNullableFilter<"User"> | string | null
     role?: XOR<RolesRelationFilter, RolesWhereInput>
     otp?: XOR<OtpNullableRelationFilter, OtpWhereInput> | null
-  }, "id" | "email">
+  }, "id" | "email" | "customerId">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -7373,6 +7427,8 @@ export namespace Prisma {
     gender?: SortOrderInput | SortOrder
     aboutMe?: SortOrderInput | SortOrder
     archive?: SortOrder
+    customerId?: SortOrderInput | SortOrder
+    paymentType?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -7396,6 +7452,8 @@ export namespace Prisma {
     gender?: StringNullableWithAggregatesFilter<"User"> | string | null
     aboutMe?: StringNullableWithAggregatesFilter<"User"> | string | null
     archive?: BoolWithAggregatesFilter<"User"> | boolean
+    customerId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    paymentType?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
   export type OtpWhereInput = {
@@ -7555,6 +7613,8 @@ export namespace Prisma {
     services?: StringNullableListFilter<"Subscription">
     type?: StringFilter<"Subscription"> | string
     archive?: BoolFilter<"Subscription"> | boolean
+    stripeId?: StringFilter<"Subscription"> | string
+    braintreePlanId?: StringNullableFilter<"Subscription"> | string | null
   }
 
   export type SubscriptionOrderByWithRelationInput = {
@@ -7565,12 +7625,16 @@ export namespace Prisma {
     services?: SortOrder
     type?: SortOrder
     archive?: SortOrder
+    stripeId?: SortOrder
+    braintreePlanId?: SortOrderInput | SortOrder
   }
 
   export type SubscriptionWhereUniqueInput = Prisma.AtLeast<{
     id?: number
     name?: string
     type?: string
+    stripeId?: string
+    braintreePlanId?: string
     AND?: SubscriptionWhereInput | SubscriptionWhereInput[]
     OR?: SubscriptionWhereInput[]
     NOT?: SubscriptionWhereInput | SubscriptionWhereInput[]
@@ -7578,7 +7642,7 @@ export namespace Prisma {
     amount?: IntFilter<"Subscription"> | number
     services?: StringNullableListFilter<"Subscription">
     archive?: BoolFilter<"Subscription"> | boolean
-  }, "id" | "name" | "type">
+  }, "id" | "name" | "type" | "stripeId" | "braintreePlanId">
 
   export type SubscriptionOrderByWithAggregationInput = {
     id?: SortOrder
@@ -7588,6 +7652,8 @@ export namespace Prisma {
     services?: SortOrder
     type?: SortOrder
     archive?: SortOrder
+    stripeId?: SortOrder
+    braintreePlanId?: SortOrderInput | SortOrder
     _count?: SubscriptionCountOrderByAggregateInput
     _avg?: SubscriptionAvgOrderByAggregateInput
     _max?: SubscriptionMaxOrderByAggregateInput
@@ -7606,6 +7672,8 @@ export namespace Prisma {
     services?: StringNullableListFilter<"Subscription">
     type?: StringWithAggregatesFilter<"Subscription"> | string
     archive?: BoolWithAggregatesFilter<"Subscription"> | boolean
+    stripeId?: StringWithAggregatesFilter<"Subscription"> | string
+    braintreePlanId?: StringNullableWithAggregatesFilter<"Subscription"> | string | null
   }
 
   export type ChannelsWhereInput = {
@@ -7676,6 +7744,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
     role: RolesCreateNestedOneWithoutUserInput
     otp?: OtpCreateNestedOneWithoutUserInput
   }
@@ -7693,6 +7763,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
     otp?: OtpUncheckedCreateNestedOneWithoutUserInput
   }
 
@@ -7707,6 +7779,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
     role?: RolesUpdateOneRequiredWithoutUserNestedInput
     otp?: OtpUpdateOneWithoutUserNestedInput
   }
@@ -7724,6 +7798,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
     otp?: OtpUncheckedUpdateOneWithoutUserNestedInput
   }
 
@@ -7740,6 +7816,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -7753,6 +7831,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -7768,6 +7848,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type OtpCreateInput = {
@@ -7908,6 +7990,8 @@ export namespace Prisma {
     services?: SubscriptionCreateservicesInput | string[]
     type: string
     archive?: boolean
+    stripeId: string
+    braintreePlanId?: string | null
   }
 
   export type SubscriptionUncheckedCreateInput = {
@@ -7918,6 +8002,8 @@ export namespace Prisma {
     services?: SubscriptionCreateservicesInput | string[]
     type: string
     archive?: boolean
+    stripeId: string
+    braintreePlanId?: string | null
   }
 
   export type SubscriptionUpdateInput = {
@@ -7927,6 +8013,8 @@ export namespace Prisma {
     services?: SubscriptionUpdateservicesInput | string[]
     type?: StringFieldUpdateOperationsInput | string
     archive?: BoolFieldUpdateOperationsInput | boolean
+    stripeId?: StringFieldUpdateOperationsInput | string
+    braintreePlanId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubscriptionUncheckedUpdateInput = {
@@ -7937,6 +8025,8 @@ export namespace Prisma {
     services?: SubscriptionUpdateservicesInput | string[]
     type?: StringFieldUpdateOperationsInput | string
     archive?: BoolFieldUpdateOperationsInput | boolean
+    stripeId?: StringFieldUpdateOperationsInput | string
+    braintreePlanId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubscriptionCreateManyInput = {
@@ -7947,6 +8037,8 @@ export namespace Prisma {
     services?: SubscriptionCreateservicesInput | string[]
     type: string
     archive?: boolean
+    stripeId: string
+    braintreePlanId?: string | null
   }
 
   export type SubscriptionUpdateManyMutationInput = {
@@ -7956,6 +8048,8 @@ export namespace Prisma {
     services?: SubscriptionUpdateservicesInput | string[]
     type?: StringFieldUpdateOperationsInput | string
     archive?: BoolFieldUpdateOperationsInput | boolean
+    stripeId?: StringFieldUpdateOperationsInput | string
+    braintreePlanId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubscriptionUncheckedUpdateManyInput = {
@@ -7966,6 +8060,8 @@ export namespace Prisma {
     services?: SubscriptionUpdateservicesInput | string[]
     type?: StringFieldUpdateOperationsInput | string
     archive?: BoolFieldUpdateOperationsInput | boolean
+    stripeId?: StringFieldUpdateOperationsInput | string
+    braintreePlanId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ChannelsCreateInput = {
@@ -8105,6 +8201,8 @@ export namespace Prisma {
     gender?: SortOrder
     aboutMe?: SortOrder
     archive?: SortOrder
+    customerId?: SortOrder
+    paymentType?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -8125,6 +8223,8 @@ export namespace Prisma {
     gender?: SortOrder
     aboutMe?: SortOrder
     archive?: SortOrder
+    customerId?: SortOrder
+    paymentType?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -8140,6 +8240,8 @@ export namespace Prisma {
     gender?: SortOrder
     aboutMe?: SortOrder
     archive?: SortOrder
+    customerId?: SortOrder
+    paymentType?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -8374,6 +8476,8 @@ export namespace Prisma {
     services?: SortOrder
     type?: SortOrder
     archive?: SortOrder
+    stripeId?: SortOrder
+    braintreePlanId?: SortOrder
   }
 
   export type SubscriptionAvgOrderByAggregateInput = {
@@ -8388,6 +8492,8 @@ export namespace Prisma {
     amount?: SortOrder
     type?: SortOrder
     archive?: SortOrder
+    stripeId?: SortOrder
+    braintreePlanId?: SortOrder
   }
 
   export type SubscriptionMinOrderByAggregateInput = {
@@ -8397,6 +8503,8 @@ export namespace Prisma {
     amount?: SortOrder
     type?: SortOrder
     archive?: SortOrder
+    stripeId?: SortOrder
+    braintreePlanId?: SortOrder
   }
 
   export type SubscriptionSumOrderByAggregateInput = {
@@ -8905,6 +9013,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
     role: RolesCreateNestedOneWithoutUserInput
   }
 
@@ -8921,6 +9031,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
   }
 
   export type UserCreateOrConnectWithoutOtpInput = {
@@ -8950,6 +9062,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
     role?: RolesUpdateOneRequiredWithoutUserNestedInput
   }
 
@@ -8966,6 +9080,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateWithoutRoleInput = {
@@ -8979,6 +9095,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
     otp?: OtpCreateNestedOneWithoutUserInput
   }
 
@@ -8994,6 +9112,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
     otp?: OtpUncheckedCreateNestedOneWithoutUserInput
   }
 
@@ -9039,6 +9159,8 @@ export namespace Prisma {
     gender?: StringNullableFilter<"User"> | string | null
     aboutMe?: StringNullableFilter<"User"> | string | null
     archive?: BoolFilter<"User"> | boolean
+    customerId?: StringNullableFilter<"User"> | string | null
+    paymentType?: StringNullableFilter<"User"> | string | null
   }
 
   export type ChannelsCreateWithoutCategoryInput = {
@@ -9141,6 +9263,8 @@ export namespace Prisma {
     gender?: string | null
     aboutMe?: string | null
     archive?: boolean
+    customerId?: string | null
+    paymentType?: string | null
   }
 
   export type UserUpdateWithoutRoleInput = {
@@ -9154,6 +9278,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
     otp?: OtpUpdateOneWithoutUserNestedInput
   }
 
@@ -9169,6 +9295,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
     otp?: OtpUncheckedUpdateOneWithoutUserNestedInput
   }
 
@@ -9184,6 +9312,8 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     aboutMe?: NullableStringFieldUpdateOperationsInput | string | null
     archive?: BoolFieldUpdateOperationsInput | boolean
+    customerId?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentType?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ChannelsCreateManyCategoryInput = {

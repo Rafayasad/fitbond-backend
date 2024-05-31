@@ -24,10 +24,10 @@ const userDefs = `#graphql
     type: String!
     fullname:String
     phoneNumber:String
+    profilePic:String
     dob:Date
     gender:String
     aboutMe:String
-    profilePic:String
     archive: Boolean!
   }
 
